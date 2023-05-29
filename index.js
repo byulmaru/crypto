@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 
 const app = require('express')();
 
-const apiKey = [...require('./apiKey.json'), ...(process.env.API_KEY || '').split(',').map(key => key.trim())];
+const apiKey = (process.env.API_KEY || '').split(',').map(key => key.trim());
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
