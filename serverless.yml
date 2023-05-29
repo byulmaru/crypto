@@ -1,0 +1,18 @@
+service: crypto
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: ap-northeast-2
+  memorySize: 256
+  architecture: arm64
+
+functions:
+  api:
+    handler: index.handler
+    events:
+      - httpApi: '*'
+
+plugins:
+  - serverless-offline
